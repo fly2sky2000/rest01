@@ -9,17 +9,19 @@ server:
 # DataSource Config
 spring:
   datasource:
+    #driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    #url: jdbc:p6spy:mysql://localhost:3306/testdb01?useUnicode=true&serverTimezone=GMT&useSSL=false&characterEncoding=utf8
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/testdb01?useUnicode=true&serverTimezone=Asia/Shanghai&useSSL=false&characterEncoding=utf8
     username: root
     password: 123456
   jpa:
     database: mysql
-    show-sql: true
+    #show-sql: true
+    #format_sql: true
     hibernate:
       ddl-auto: update
 
-# Logger Config
+# log
 logging:
-  level:
-    com.cameo.rest01: debug
+  config: classpath:logback.xml
