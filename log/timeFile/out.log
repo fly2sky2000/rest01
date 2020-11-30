@@ -4480,3 +4480,64 @@ Unconditional classes:
 2020-11-26 21:21:59.744 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
 2020-11-26 21:30:04.164 [http-nio-8188-exec-10] DEBUG org.hibernate.SQL - select tradingrec0_.id as id1_0_, tradingrec0_.coin_code as coin_cod2_0_, tradingrec0_.quantity as quantity3_0_, tradingrec0_.trading_type as trading_4_0_, tradingrec0_.money as money5_0_, tradingrec0_.unit as unit6_0_, tradingrec0_.price_type as price_ty7_0_, tradingrec0_.booked_date as booked_d8_0_, tradingrec0_.remark as remark9_0_, tradingrec0_.revision as revisio10_0_, tradingrec0_.created_by as created11_0_, tradingrec0_.created_time as created12_0_, tradingrec0_.updated_by as updated13_0_, tradingrec0_.updated_time as updated14_0_ from trading_record tradingrec0_ limit ?
 2020-11-26 21:30:52.085 [http-nio-8188-exec-2] DEBUG org.hibernate.SQL - select tradingrec0_.id as id1_0_, tradingrec0_.coin_code as coin_cod2_0_, tradingrec0_.quantity as quantity3_0_, tradingrec0_.trading_type as trading_4_0_, tradingrec0_.money as money5_0_, tradingrec0_.unit as unit6_0_, tradingrec0_.price_type as price_ty7_0_, tradingrec0_.booked_date as booked_d8_0_, tradingrec0_.remark as remark9_0_, tradingrec0_.revision as revisio10_0_, tradingrec0_.created_by as created11_0_, tradingrec0_.created_time as created12_0_, tradingrec0_.updated_by as updated13_0_, tradingrec0_.updated_time as updated14_0_ from trading_record tradingrec0_ limit ?
+2020-11-30 12:59:40.313 [main] DEBUG org.hibernate.SQL - insert into trading_record (coin_code, quantity, trading_type, money, unit, price_type, booked_date, remark, revision, created_by, created_time, updated_by, updated_time, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2020-11-30 12:59:40.327 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [BTC]
+2020-11-30 12:59:40.328 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [DOUBLE] - [1.0]
+2020-11-30 12:59:40.329 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [1]
+2020-11-30 12:59:40.329 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [4] as [DOUBLE] - [35000.0]
+2020-11-30 12:59:40.329 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [5] as [VARCHAR] - [CNY]
+2020-11-30 12:59:40.329 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [6] as [VARCHAR] - [2]
+2020-11-30 12:59:40.330 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [7] as [TIMESTAMP] - [Mon Nov 30 12:59:40 CST 2020]
+2020-11-30 12:59:40.332 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [8] as [VARCHAR] - []
+2020-11-30 12:59:40.333 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [9] as [INTEGER] - [1]
+2020-11-30 12:59:40.334 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [10] as [VARCHAR] - [Felix]
+2020-11-30 12:59:40.335 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [11] as [TIMESTAMP] - [Mon Nov 30 12:59:40 CST 2020]
+2020-11-30 12:59:40.335 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [12] as [VARCHAR] - [felix]
+2020-11-30 12:59:40.335 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [13] as [TIMESTAMP] - [Mon Nov 30 12:59:40 CST 2020]
+2020-11-30 12:59:40.336 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [14] as [VARCHAR] - [ff8080817617853e017617854b6b0000]
+2020-11-30 13:04:01.906 [task-1] DEBUG org.hibernate.SQL - create table trading_record (id varchar(32) not null, coin_code varchar(50), quantity double precision, trading_type varchar(50), money double precision, unit varchar(50), price_type varchar(50), booked_date datetime(6), remark varchar(50), revision integer, created_by varchar(50), created_time datetime(6), updated_by varchar(50), updated_time datetime(6), primary key (id)) engine=InnoDB
+2020-11-30 13:04:04.634 [main] DEBUG org.hibernate.SQL - insert into trading_record (coin_code, quantity, trading_type, money, unit, price_type, booked_date, remark, revision, created_by, created_time, updated_by, updated_time, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2020-11-30 13:04:04.641 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [BTC]
+2020-11-30 13:04:04.642 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [DOUBLE] - [1.0]
+2020-11-30 13:04:04.642 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [1]
+2020-11-30 13:04:04.642 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [4] as [DOUBLE] - [35000.0]
+2020-11-30 13:04:04.642 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [5] as [VARCHAR] - [CNY]
+2020-11-30 13:04:04.642 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [6] as [VARCHAR] - [2]
+2020-11-30 13:04:04.643 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [7] as [TIMESTAMP] - [Mon Nov 30 13:04:04 CST 2020]
+2020-11-30 13:04:04.646 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [8] as [VARCHAR] - []
+2020-11-30 13:04:04.646 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [9] as [INTEGER] - [1]
+2020-11-30 13:04:04.647 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [10] as [VARCHAR] - [Felix]
+2020-11-30 13:04:04.647 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [11] as [TIMESTAMP] - [Mon Nov 30 13:04:04 CST 2020]
+2020-11-30 13:04:04.647 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [12] as [VARCHAR] - [felix]
+2020-11-30 13:04:04.647 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [13] as [TIMESTAMP] - [Mon Nov 30 13:04:04 CST 2020]
+2020-11-30 13:04:04.648 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [14] as [VARCHAR] - [ff808081761789470176178953ef0000]
+2020-11-30 13:05:24.384 [http-nio-8188-exec-1] DEBUG org.hibernate.SQL - select tradingrec0_.id as id1_0_, tradingrec0_.coin_code as coin_cod2_0_, tradingrec0_.quantity as quantity3_0_, tradingrec0_.trading_type as trading_4_0_, tradingrec0_.money as money5_0_, tradingrec0_.unit as unit6_0_, tradingrec0_.price_type as price_ty7_0_, tradingrec0_.booked_date as booked_d8_0_, tradingrec0_.remark as remark9_0_, tradingrec0_.revision as revisio10_0_, tradingrec0_.created_by as created11_0_, tradingrec0_.created_time as created12_0_, tradingrec0_.updated_by as updated13_0_, tradingrec0_.updated_time as updated14_0_ from trading_record tradingrec0_ limit ?
+2020-11-30 13:30:47.572 [restartedMain] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+An attempt was made to call a method that does not exist. The attempt was made from the following location:
+
+    org.springframework.data.rest.core.support.UnwrappingRepositoryInvokerFactory.<init>(UnwrappingRepositoryInvokerFactory.java:54)
+
+The following method did not exist:
+
+    org.springframework.plugin.core.PluginRegistry.of(Ljava/util/List;)Lorg/springframework/plugin/core/PluginRegistry;
+
+The method's class, org.springframework.plugin.core.PluginRegistry, is available from the following locations:
+
+    jar:file:/Users/felix/mvnrepository/org/springframework/plugin/spring-plugin-core/1.2.0.RELEASE/spring-plugin-core-1.2.0.RELEASE.jar!/org/springframework/plugin/core/PluginRegistry.class
+
+The class hierarchy was loaded from the following locations:
+
+    org.springframework.plugin.core.PluginRegistry: file:/Users/felix/mvnrepository/org/springframework/plugin/spring-plugin-core/1.2.0.RELEASE/spring-plugin-core-1.2.0.RELEASE.jar
+
+
+Action:
+
+Correct the classpath of your application so that it contains a single, compatible version of org.springframework.plugin.core.PluginRegistry
+

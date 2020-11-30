@@ -1,6 +1,8 @@
 package com.cameo.rest01.entity;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
@@ -15,6 +17,7 @@ import java.util.Date;
 @Entity
 @Data
 @Table(name="TRADING_RECORD")
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
@@ -24,8 +27,10 @@ public class TradingRecord implements Serializable,Cloneable{
     @Id
     @GeneratedValue(generator = "jpa-uuid")
     @Column(length = 32)
+    @ApiModelProperty("ID")
     private String id ;
     /** 币种 */
+    @ApiModelProperty("币种")
     @Column(length = 50)
     private String coinCode ;
     /** 数量 */
