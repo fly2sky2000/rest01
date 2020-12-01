@@ -1,0 +1,23 @@
+{
+    "coinCode" : "BTC",
+    "quantity" : 1.0,
+    "tradingType" : "1",
+    "money" : 35000.0,
+    "unit" : "CNY",
+    "priceType" : "2",
+    "bookedDate" : "2020-11-30T05:04:04.494+00:00",
+    "remark" : "",
+    "revision" : 1,
+    "createdBy" : "Felix",
+    "createdTime" : "2020-11-30T05:04:04.558+00:00",
+    "updatedBy" : "felix",
+    "updatedTime" : "2020-11-30T05:04:04.558+00:00",
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:8188/rest01/trading-record/ff808081761789470176178953ef0000"
+      },
+      "tradingRecord" : {
+        "href" : "http://localhost:8188/rest01/trading-record/ff808081761789470176178953ef0000"
+      }
+    }
+  }

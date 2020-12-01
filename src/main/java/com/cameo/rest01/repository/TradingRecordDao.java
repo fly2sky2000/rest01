@@ -12,5 +12,5 @@ import java.util.List;
 @RepositoryRestResource(collectionResourceRel = "trading-record", path = "trading-record")
 @Api(tags="交易记录服务")
 public interface TradingRecordDao extends JpaRepository<TradingRecord, String>, JpaSpecificationExecutor {
-    List<TradingRecord> findByCoinCode(@Param("coinCode") String coinCode);
+    //List<TradingRecord> findByCoinCode(@Param("coinCode") String coinCode);
 }

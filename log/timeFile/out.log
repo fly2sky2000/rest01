@@ -4541,3 +4541,4 @@ Action:
 
 Correct the classpath of your application so that it contains a single, compatible version of org.springframework.plugin.core.PluginRegistry
 
+2020-11-30 16:27:36.921 [http-nio-8188-exec-1] DEBUG org.hibernate.SQL - select tradingrec0_.id as id1_0_, tradingrec0_.coin_code as coin_cod2_0_, tradingrec0_.quantity as quantity3_0_, tradingrec0_.trading_type as trading_4_0_, tradingrec0_.money as money5_0_, tradingrec0_.unit as unit6_0_, tradingrec0_.price_type as price_ty7_0_, tradingrec0_.booked_date as booked_d8_0_, tradingrec0_.remark as remark9_0_, tradingrec0_.revision as revisio10_0_, tradingrec0_.created_by as created11_0_, tradingrec0_.created_time as created12_0_, tradingrec0_.updated_by as updated13_0_, tradingrec0_.updated_time as updated14_0_ from trading_record tradingrec0_ limit ?
