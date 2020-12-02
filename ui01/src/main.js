@@ -8,24 +8,24 @@ import store from './store'
 
 Vue.config.productionTip = false
 const request = axios.create({
-  baseURL: 'http://localhost',
+  baseURL: 'http://localhost:8189',
   timeout: 1000 * 60,
   withCredentials: true,
 });
 // respone 拦截器
-request.interceptors.response.use(
-  response => {
-    const { data = {} } = response;
-    const { success } = data;
-    if (success) {
-      return data;
-    } else {
-      return { success };
-    }
-  },
-  error => {
-    return { success: false };
-  });
+// request.interceptors.response.use(
+//   response => {
+//     const { data = {} } = response;
+//     const { success } = data;
+//     if (success) {
+//       return data;
+//     } else {
+//       return { success };
+//     }
+//   },
+//   error => {
+//     return { success: false };
+//   });
 
 Vue.prototype.$request = request;
 

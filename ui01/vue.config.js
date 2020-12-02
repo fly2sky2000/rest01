@@ -2,7 +2,7 @@ module.exports = {
   publicPath: '/ui01',
   devServer: {
     open: true,
-    port: '8081',
+    port: '8189',
     proxy: {
       '/rest01': {
         target: 'http://localhost:8188/rest01/',
