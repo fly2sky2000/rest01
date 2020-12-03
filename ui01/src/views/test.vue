@@ -10,7 +10,7 @@ export default {
   name: "test",
   components: {},
   created() {
-    let url = "/rest01/trading-record/";
+    let url = "/rest01/tradingRecord/";
 
     // axios.get("/test/domain.json", { params: { id: 12 } }).then((res) => {
     //   console.log(res.config.url);

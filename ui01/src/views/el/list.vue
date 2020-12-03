@@ -8,7 +8,7 @@
 
 <script>
 // @ is an alias to /src
-import axios from "axios";
+import { listTradingRecord } from "@/api/tradingRecord";
 
 export default {
   name: "list",
@@ -19,10 +19,19 @@ export default {
     };
   },
   created() {
-    this.instance = axios.create({baseURL:"http://localhost:8189/rest01",timeout:1000})
-    this.instance.get("/tradingRecord").then(res=>{
-        this.tableData = res.data._embedded.tradingRecord;
-    })
+    this.getList()
+    // this.instance = axios.create({baseURL:"http://localhost:8189/rest01",timeout:1000})
+    // this.instance.get("/tradingRecord").then(res=>{
+    //     this.tableData = res.data._embedded.tradingRecord;
+    // })
+  },
+  methods: {
+    getList(){
+      listTradingRecord().then(res=>{
+        console.log(res);
+        this.tableData = res._embedded.tradingRecord;
+      })
+    }
   },
 };
 </script>

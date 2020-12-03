@@ -1,15 +1,17 @@
+const port = process.env.port || process.env.npm_config_port || 8189 // 端口
+
 module.exports = {
-  publicPath: '/ui01',
+  publicPath: process.env.NODE_ENV === "production" ? "/ui01" : "/ui01",
   devServer: {
     open: true,
-    port: '8189',
+    port: port,
     proxy: {
-      '/rest01': {
-        target: 'http://localhost:8188/rest01/',
+      [process.env.VUE_APP_BASE_API]: {
+        target: `http://localhost:8188`+ process.env.VUE_APP_BASE_API,
         changeOrigin: true,
         ws: true,
         pathRewrite: {
-          '^/rest01': ''
+          ['^' + process.env.VUE_APP_BASE_API]: ''
         }
       }
    }

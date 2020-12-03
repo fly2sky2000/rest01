@@ -1,8 +1,8 @@
 import request from "@/utils/request"
 
-export function listTraddingRecord(query){
+export function listTradingRecord(query){
     return request({
-        url:"/traddingRecord",
+        url:"/tradingRecord",
         method:"get",
         params: query
     })
