@@ -13,8 +13,9 @@ export default {
   name: "test01",
   components: {},
   created() {
-    axios.get("/test/domain.json").then((res) => {
+    axios.get("/rest01/tradingRecord").then((res) => {
       console.log(res);
+      console.log(res.data._embedded.tradingRecord);
     });
   },
 };

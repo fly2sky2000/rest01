@@ -1,44 +1,85 @@
 {
-    "_embedded" : {
-      "trading-record" : [ {
-        "coinCode" : "BTC",
-        "quantity" : 1.0,
-        "tradingType" : "1",
-        "money" : 35000.0,
-        "unit" : "CNY",
-        "priceType" : "2",
-        "bookedDate" : "2020-11-30T05:04:04.494+00:00",
-        "remark" : "",
-        "revision" : 1,
-        "createdBy" : "Felix",
-        "createdTime" : "2020-11-30T05:04:04.558+00:00",
-        "updatedBy" : "felix",
-        "updatedTime" : "2020-11-30T05:04:04.558+00:00",
-        "_links" : {
-          "self" : {
-            "href" : "http://localhost:8188/rest01/trading-record/ff808081761789470176178953ef0000"
-          },
-          "tradingRecord" : {
-            "href" : "http://localhost:8188/rest01/trading-record/ff808081761789470176178953ef0000"
-          }
+  "_embedded" : {
+    "tradingRecord" : [ {
+      "coinCode" : "BTC",
+      "quantity" : 1.0,
+      "tradingType" : "1",
+      "money" : 35000.0,
+      "unit" : "CNY",
+      "priceType" : "2",
+      "bookedDate" : "2020-11-30T05:04:04.494+00:00",
+      "remark" : "",
+      "revision" : 1,
+      "createdBy" : "Felix",
+      "createdTime" : "2020-11-30T05:04:04.558+00:00",
+      "updatedBy" : "felix",
+      "updatedTime" : "2020-11-30T05:04:04.558+00:00",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8188/rest01/tradingRecord/ff808081761789470176178953ef0000"
+        },
+        "tradingRecord" : {
+          "href" : "http://localhost:8188/rest01/tradingRecord/ff808081761789470176178953ef0000"
         }
-      } ]
-    },
-    "_links" : {
-      "self" : {
-        "href" : "http://localhost:8188/rest01/trading-record/"
-      },
-      "profile" : {
-        "href" : "http://localhost:8188/rest01/profile/trading-record"
-      },
-      "search" : {
-        "href" : "http://localhost:8188/rest01/trading-record/search"
       }
+    }, {
+      "coinCode" : "BTC",
+      "quantity" : 2.0,
+      "tradingType" : "1",
+      "money" : 45000.0,
+      "unit" : "CNY",
+      "priceType" : "2",
+      "bookedDate" : "2020-11-24T00:00:00.000+00:00",
+      "remark" : "",
+      "revision" : 1,
+      "createdBy" : "felix",
+      "createdTime" : "2020-12-03T08:43:17.699+00:00",
+      "updatedBy" : "felix",
+      "updatedTime" : "2020-12-03T08:43:17.699+00:00",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8188/rest01/tradingRecord/ff808081761842f3017627c51b4a0000"
+        },
+        "tradingRecord" : {
+          "href" : "http://localhost:8188/rest01/tradingRecord/ff808081761842f3017627c51b4a0000"
+        }
+      }
+    }, {
+      "coinCode" : "BTC",
+      "quantity" : 2.0,
+      "tradingType" : "1",
+      "money" : 45000.0,
+      "unit" : "CNY",
+      "priceType" : "2",
+      "bookedDate" : "2020-11-24T00:00:00.000+00:00",
+      "remark" : "",
+      "revision" : 1,
+      "createdBy" : "felix",
+      "createdTime" : "2020-12-03T08:43:30.901+00:00",
+      "updatedBy" : "felix",
+      "updatedTime" : "2020-12-03T08:43:30.901+00:00",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8188/rest01/tradingRecord/ff808081761842f3017627c54ed50001"
+        },
+        "tradingRecord" : {
+          "href" : "http://localhost:8188/rest01/tradingRecord/ff808081761842f3017627c54ed50001"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8188/rest01/tradingRecord/"
     },
-    "page" : {
-      "size" : 20,
-      "totalElements" : 1,
-      "totalPages" : 1,
-      "number" : 0
+    "profile" : {
+      "href" : "http://localhost:8188/rest01/profile/tradingRecord"
     }
+  },
+  "page" : {
+    "size" : 20,
+    "totalElements" : 3,
+    "totalPages" : 1,
+    "number" : 0
   }
+}

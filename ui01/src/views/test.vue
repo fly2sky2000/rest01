@@ -10,30 +10,30 @@ export default {
   name: "test",
   components: {},
   created() {
-    // let url = "/rest01/trading-record/";
+    let url = "/rest01/trading-record/";
 
     // axios.get("/test/domain.json", { params: { id: 12 } }).then((res) => {
     //   console.log(res.config.url);
     //   console.log(res);
     // });
-    // //创建数据
-    // let dataAdd1 = {
-    //   coinCode: "BTC",
-    //   quantity: 2.0,
-    //   tradingType: "1",
-    //   money: 45000.0,
-    //   unit: "CNY",
-    //   priceType: "2",
-    //   bookedDate: "2020-11-24",
-    //   remark: "",
-    //   revision: 1,
-    //   createdBy: "felix",
-    //   updatedBy: "felix",
-    // };
-    // axios.post(url, dataAdd1).then((res) => {
-    //   console.log(res.config.url);
-    //   console.log(res);
-    // });
+    //创建数据
+    let dataAdd1 = {
+      coinCode: "BTC",
+      quantity: 2.0,
+      tradingType: "1",
+      money: 45000.0,
+      unit: "CNY",
+      priceType: "2",
+      bookedDate: "2020-11-24",
+      remark: "",
+      revision: 1,
+      createdBy: "felix",
+      updatedBy: "felix",
+    };
+    axios.post(url, dataAdd1).then((res) => {
+      console.log(res.config.url);
+      console.log(res);
+    });
     // //获取数据
     // let id1 = "4028835575f540c40175f540d4d00000";
     // let dataEdit1 = {};
@@ -73,29 +73,29 @@ export default {
     //   console.log(res);
     // });
     //多个请求
-    axios
-      .all([axios.get("/test/domain.json"), axios.get("/test/domain.json")])
-      .then(
-        axios.spread((res1, res2) => {
-          console.log(res1, res2);
-        })
-      );
-    axios.interceptors.request.use(
-      (config) => {
-        return config;
-      },
-      (err) => {
-        return Promise.reject(err);
-      }
-    );
-    axios.interceptors.response.use(
-      (res) => {
-        return res;
-      },
-      (err) => {
-        return Promise.reject(err);
-      }
-    );
+    // axios
+    //   .all([axios.get("/test/domain.json"), axios.get("/test/domain.json")])
+    //   .then(
+    //     axios.spread((res1, res2) => {
+    //       console.log(res1, res2);
+    //     })
+    //   );
+    // axios.interceptors.request.use(
+    //   (config) => {
+    //     return config;
+    //   },
+    //   (err) => {
+    //     return Promise.reject(err);
+    //   }
+    // );
+    // axios.interceptors.response.use(
+    //   (res) => {
+    //     return res;
+    //   },
+    //   (err) => {
+    //     return Promise.reject(err);
+    //   }
+    // );
   },
 };
 </script>

@@ -9,7 +9,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
-@RepositoryRestResource(collectionResourceRel = "trading-record", path = "trading-record")
+@RepositoryRestResource(collectionResourceRel = "tradingRecord", path = "tradingRecord")
 @Api(tags="交易记录服务")
 public interface TradingRecordDao extends JpaRepository<TradingRecord, String>, JpaSpecificationExecutor {
     //List<TradingRecord> findByCoinCode(@Param("coinCode") String coinCode);
