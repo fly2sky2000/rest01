@@ -10,6 +10,13 @@ export function listTradingRecord(params){
     })
 }
 
+export function getTradingRecord(id){
+    return request({
+        url:url+"/"+id,
+        method:"get"
+    })
+}
+
 export function addTradingRecord(data){
     return request({
         url:url,
@@ -31,3 +38,4 @@ export function delTradingRecord(id){
         method:"delete"
     })
 }
+
