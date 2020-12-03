@@ -77,9 +77,25 @@ export default {
       .all([axios.get("/test/domain.json"), axios.get("/test/domain.json")])
       .then(
         axios.spread((res1, res2) => {
-          console.log(res1,res2);
+          console.log(res1, res2);
         })
       );
+    axios.interceptors.request.use(
+      (config) => {
+        return config;
+      },
+      (err) => {
+        return Promise.reject(err);
+      }
+    );
+    axios.interceptors.response.use(
+      (res) => {
+        return res;
+      },
+      (err) => {
+        return Promise.reject(err);
+      }
+    );
   },
 };
 </script>

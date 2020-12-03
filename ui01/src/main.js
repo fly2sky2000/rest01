@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import axios from 'axios';
-import ElementUI from 'element-ui'; // ElementUI组件库
-import 'element-ui/packages/theme-chalk/lib/index.css'; // ElementUI组件库样式
+// import ElementUI from 'element-ui'; // ElementUI组件库
+// import 'element-ui/packages/theme-chalk/lib/index.css'; // ElementUI组件库样式
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -26,11 +26,11 @@ const request = axios.create({
 //   error => {
 //     return { success: false };
 //   });
+import './util/element.js'
 
 Vue.prototype.$request = request;
 
-// 注册ElementUI
-Vue.use(ElementUI);
+
 new Vue({
   router,
   store,
