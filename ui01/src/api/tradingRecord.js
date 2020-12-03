@@ -1,9 +1,33 @@
 import request from "@/utils/request"
 
-export function listTradingRecord(query){
+const url = "/tradingRecord";
+
+export function listTradingRecord(params){
     return request({
-        url:"/tradingRecord",
+        url:url,
         method:"get",
-        params: query
+        params: params
+    })
+}
+
+export function addTradingRecord(data){
+    return request({
+        url:url,
+        method:"post",
+        data: data
+    })
+}
+export function updateTradingRecord(data){
+    return request({
+        url:url,
+        method:"patch",
+        data: data
+    })
+}
+
+export function delTradingRecord(id){
+    return request({
+        url:url+"/"+id,
+        method:"delete"
     })
 }
