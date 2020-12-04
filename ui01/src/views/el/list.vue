@@ -283,14 +283,11 @@ export default {
     getList() {
       listTradingRecord({ sort: "updatedTime,desc" }).then((res) => {
         this.tableData = res._embedded.tradingRecord;
-        //console.log("this.tableData", this.tableData);
       });
     },
     //添加一条交易记录
     handleSave(formName) {
-      console.log(this.$refs[formName]);
       this.$refs[formName].validate((valid) => {
-        console.log(valid);
         if (!valid) {
           this.$message("校验错误！");
           return false;
@@ -338,7 +335,6 @@ export default {
         type: "warning",
       }).then(() => {
         delTradingRecord(row.id).then((res) => {
-          console.log(res);
           this.getList();
           this.$message("删除成功！");
         });
