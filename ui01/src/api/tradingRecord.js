@@ -26,7 +26,7 @@ export function addTradingRecord(data){
 }
 export function updateTradingRecord(data){
     return request({
-        url:url,
+        url:url+"/"+data.id,
         method:"patch",
         data: data
     })

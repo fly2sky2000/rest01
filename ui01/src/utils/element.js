@@ -1,4 +1,4 @@
-// element.js 全文内容如下，按自己需要引入就好了
+// element.js 全文内容如下，按自己需要引入就好了,暂时不启用
 import Vue from 'vue';
 import {
   Loading,

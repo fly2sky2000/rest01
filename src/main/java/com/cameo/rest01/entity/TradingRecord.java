@@ -43,7 +43,7 @@ public class TradingRecord extends BaseEntity{
     /** 交易日期 */
     private Date bookedDate ;
     /** 备注 */
-    @Column(length = 50)
+    @Column(length = 500)
     private String remark ;
 
 
@@ -52,7 +52,6 @@ public class TradingRecord extends BaseEntity{
     @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
     @GeneratedValue(generator = "jpa-uuid")
     @Column(length = 32)
-    @ApiModelProperty("ID")
     private String id ;
     /** 乐观锁 */
     private Integer revision ;

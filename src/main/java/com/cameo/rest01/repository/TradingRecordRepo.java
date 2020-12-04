@@ -19,6 +19,7 @@ public interface TradingRecordRepo extends JpaRepository<TradingRecord, String>,
     List<TradingRecord> findByCreatedBy(@Param("createdBy") String createdBy);
 
     @RestResource(path = "findAllOrdered")
-    @Query("select t from TradingRecord t order by t.bookedDate desc ")
+    @Query("select t from TradingRecord t order by t.bookedDate desc, t.createdTime desc ")
     List<TradingRecord> findAllOrdered();
+
 }
