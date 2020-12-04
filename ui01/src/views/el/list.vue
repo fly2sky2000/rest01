@@ -301,7 +301,7 @@ export default {
               console.log(res);
               this.getList();
               this.tradingRecord = JSON.parse(JSON.stringify(newTradingRecord));
-              this.$refs[formName].clearValidate();
+              this.$refs[formName].resetFields();
               this.$message("创建成功！");
             });
           } else {
@@ -311,7 +311,8 @@ export default {
               this.getList();
               this.tradingRecord = JSON.parse(JSON.stringify(newTradingRecord));
               this.isEdit=false;
-              this.$refs[formName].clearValidate();
+              this.$refs[formName].resetFields();
+              
               this.$message("更新成功！");
             });
           }
@@ -322,6 +323,7 @@ export default {
     handleCancel(formName) {
       this.isEdit = false;
       this.tradingRecord = JSON.parse(JSON.stringify(newTradingRecord));
+      this.$refs[formName].resetFields();
     },
     //取消编辑交易记录
     handleEdit(index, row) {
