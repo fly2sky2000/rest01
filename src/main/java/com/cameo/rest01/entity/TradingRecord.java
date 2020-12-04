@@ -14,21 +14,16 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity
 @Data
-@Table(name="TRADING_RECORD")
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@GenericGenerator(name = "jpa-uuid", strategy = "uuid")
+@Builder
+@Table(name="TRADING_RECORD")
 @EntityListeners(AuditingEntityListener.class)
-public class TradingRecord implements Serializable,Cloneable{
-    /** ID */
-    @Id
-    @GeneratedValue(generator = "jpa-uuid")
-    @Column(length = 32)
-    @ApiModelProperty("ID")
-    private String id ;
+@Entity
+@GenericGenerator(name = "jpa-uuid", strategy = "uuid")
+public class TradingRecord extends BaseEntity{
+
     /** 币种 */
     @ApiModelProperty("币种")
     @Column(length = 50)
@@ -51,6 +46,14 @@ public class TradingRecord implements Serializable,Cloneable{
     /** 备注 */
     @Column(length = 50)
     private String remark ;
+
+
+    /** ID */
+    @Id
+    @GeneratedValue(generator = "jpa-uuid")
+    @Column(length = 32)
+    @ApiModelProperty("ID")
+    private String id ;
     /** 乐观锁 */
     private Integer revision ;
     /** 创建人 */
@@ -65,4 +68,5 @@ public class TradingRecord implements Serializable,Cloneable{
     /** 更新时间 */
     @LastModifiedDate
     private Date updatedTime ;
+
 }

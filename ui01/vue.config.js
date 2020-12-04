@@ -7,12 +7,12 @@ module.exports = {
     port: port,
     proxy: {
       [process.env.VUE_APP_BASE_API]: {
-        target: `http://localhost:8188`+ process.env.VUE_APP_BASE_API,
+        target: process.env.VUE_APP_SRV_ADDR,
         changeOrigin: true,
         ws: true,
-        pathRewrite: {
-          ['^' + process.env.VUE_APP_BASE_API]: ''
-        }
+        // pathRewrite: {
+        //   ['^' + process.env.VUE_APP_BASE_API]: ''
+        // }
       }
    }
   }

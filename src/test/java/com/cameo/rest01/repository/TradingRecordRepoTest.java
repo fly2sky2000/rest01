@@ -8,14 +8,19 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.Date;
 
 @SpringBootTest
-public class TradingRecordDaoTest {
+public class TradingRecordRepoTest {
     @Autowired
-    private TradingRecordDao dao;
+    private TradingRecordRepo dao;
 
     private TradingRecord entity;
+
     @Test
     public void testCreate() {
-        entity = new TradingRecord(null, "BTC", 1.0, "1", 35000.0, "CNY", "2", new Date(), "", 1, "Felix", null, "felix", null);
+        entity = TradingRecord.builder()
+                .coinCode("CNY").quantity(1.0).tradingType("1")
+                .money(35000.0).unit("1").bookedDate(new Date()).remark("测试数据")
+                .createdBy("felix").updatedBy("felix")
+                .build();
         entity = dao.save(entity);
     }
 
