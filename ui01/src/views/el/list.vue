@@ -21,17 +21,17 @@
             <el-option label="ETH" value="ETH"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="交易数量" prop="quantity">
+        <el-form-item label="数量" prop="quantity">
           <el-input
             v-model="tradingRecord.quantity"
-            placeholder="请输入交易数量"
+            placeholder="请输入数量"
             clearable
           ></el-input>
         </el-form-item>
-        <el-form-item label="交易单价" prop="money">
+        <el-form-item label="单价" prop="money">
           <el-input
             v-model="tradingRecord.money"
-            placeholder="请输入交易单价"
+            placeholder="请输入单价"
             clearable
           ></el-input>
         </el-form-item>
@@ -47,20 +47,20 @@
         </el-form-item>
       </el-row>
       <el-row>
-        <el-form-item label="交易类型">
+        <el-form-item label="类型">
           <el-select
             v-model="tradingRecord.tradingType"
-            placeholder="请选择交易类型"
+            placeholder="请选择类型"
             disabled
           >
             <el-option label="买入" value="1"></el-option>
             <el-option label="卖出" value="2"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="交易单位">
+        <el-form-item label="单位">
           <el-select
             v-model="tradingRecord.unit"
-            placeholder="交易单位"
+            placeholder="单位"
             disabled
           >
             <el-option label="CNY" value="CNY"></el-option>
@@ -85,12 +85,22 @@
             class="btn-auto"
             @click="handleSave('tradingRecordForm')"
             type="success"
-            >保存</el-button
+            >{{ isEdit ? '保存' : '新增' }}</el-button
+          >
+           <el-button
+            class="btn-auto"
+            @click="handleCancel('tradingRecordForm')"
+            type="info"
+            v-show="isEdit ? true : false"
+            >取消</el-button
           >
         </el-form-item>
       </el-row>
     </el-form>
-    <el-table :data="tableData" style="width: 100%" :border="true">
+    <el-table :data="tableData" style="width: 100%" :border="true" :stripe="true" :highlight-current-row="true">
+      <el-table-column  label="序号" min-width="40" :resizable="true"
+      type="index">
+    </el-table-column>
       <el-table-column
         prop="bookedDate"
         label="交易日期"
@@ -107,15 +117,7 @@
         :resizable="true"
       >
       </el-table-column>
-      <el-table-column
-        prop="quantity"
-        label="交易数量"
-        min-width="50"
-        :resizable="true"
-        :formatter="balanceFormater"
-      >
-      </el-table-column>
-      <el-table-column
+       <el-table-column
         prop="tradingType"
         label="交易类型"
         min-width="50"
@@ -124,8 +126,17 @@
       >
       </el-table-column>
       <el-table-column
+        prop="quantity"
+        label="数量"
+        min-width="50"
+        :resizable="true"
+        :formatter="balanceFormater"
+      >
+      </el-table-column>
+     
+      <el-table-column
         prop="money"
-        label="交易金额"
+        label="单价"
         min-width="50"
         :resizable="true"
         :formatter="currencyFormater"
@@ -133,7 +144,7 @@
       </el-table-column>
       <el-table-column
         prop="unit"
-        label="交易单位"
+        label="单位"
         min-width="50"
         :resizable="true"
       >
@@ -289,8 +300,14 @@ export default {
       }
     },
     //编辑交易记录
+    handleCancel(formName) {
+      this.isEdit = false;
+      this.tradingRecord = JSON.parse(JSON.stringify(newTradingRecord));
+      
+    },
+    //取消编辑交易记录
     handleEdit(index, row) {
-      console.log(index, row);
+      this.isEdit = true;
       this.tradingRecord = JSON.parse(JSON.stringify(row));
       
     },
