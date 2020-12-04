@@ -1,7 +1,7 @@
 const port = process.env.port || process.env.npm_config_port || 8189 // 端口
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === "production" ? "/ui01" : "/ui01",
+  publicPath: process.env.NODE_ENV === "production" ? "/" : "/ui01",
   devServer: {
     open: true,
     port: port,

@@ -94,7 +94,7 @@
       <el-table-column
         prop="bookedDate"
         label="交易日期"
-        min-width="80"
+        min-width="60"
         :show-overflow-tooltip="true"
         :resizable="true"
         :formatter="dateFormater"
@@ -103,14 +103,14 @@
       <el-table-column
         prop="coinCode"
         label="币种"
-        min-width="50"
+        min-width="40"
         :resizable="true"
       >
       </el-table-column>
       <el-table-column
         prop="quantity"
         label="交易数量"
-        min-width="80"
+        min-width="50"
         :resizable="true"
         :formatter="balanceFormater"
       >
@@ -118,7 +118,7 @@
       <el-table-column
         prop="tradingType"
         label="交易类型"
-        min-width="80"
+        min-width="50"
         :resizable="true"
         :formatter="tradingTypeFormater"
       >
@@ -126,7 +126,7 @@
       <el-table-column
         prop="money"
         label="交易金额"
-        min-width="80"
+        min-width="50"
         :resizable="true"
         :formatter="currencyFormater"
       >
@@ -157,14 +157,14 @@
       <el-table-column
         prop="createdBy"
         label="创建人"
-        min-width="50"
+        min-width="40"
         :resizable="true"
       >
       </el-table-column>
       <el-table-column
         prop="createdTime"
         label="创建时间"
-        min-width="80"
+        min-width="100"
         :show-overflow-tooltip="true"
         :resizable="true"
         :formatter="dateTimeFormater"
@@ -173,14 +173,14 @@
       <el-table-column
         prop="updatedBy"
         label="更新人"
-        min-width="50"
+        min-width="40"
         :resizable="true"
       >
       </el-table-column>
       <el-table-column
         prop="updatedTime"
         label="更新时间"
-        min-width="80"
+        min-width="100"
         :show-overflow-tooltip="true"
         :resizable="true"
         :formatter="dateTimeFormater"
