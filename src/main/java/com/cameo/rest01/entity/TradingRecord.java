@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -15,12 +17,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 @Table(name="TRADING_RECORD")
 @EntityListeners(AuditingEntityListener.class)
 @Entity
+@Accessors(chain = true)
 public class TradingRecord extends BaseEntity{
 
     /** 币种 */
@@ -47,25 +47,6 @@ public class TradingRecord extends BaseEntity{
     private String remark ;
 
 
-    /** ID */
-    @Id
-    @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
-    @GeneratedValue(generator = "jpa-uuid")
-    @Column(length = 32)
-    private String id ;
-    /** 乐观锁 */
-    private Integer revision ;
-    /** 创建人 */
-    @Column(length = 50)
-    private String createdBy ;
-    /** 创建时间 */
-    @CreatedDate
-    private Date createdTime ;
-    /** 更新人 */
-    @Column(length = 50)
-    private String updatedBy ;
-    /** 更新时间 */
-    @LastModifiedDate
-    private Date updatedTime ;
+
 
 }

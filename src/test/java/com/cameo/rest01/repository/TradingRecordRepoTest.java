@@ -16,11 +16,9 @@ public class TradingRecordRepoTest {
 
     @Test
     public void testCreate() {
-        entity = TradingRecord.builder()
-                .coinCode("CNY").quantity(1.0).tradingType("1")
-                .money(35000.0).unit("1").bookedDate(new Date()).remark("测试数据")
-                .createdBy("felix").updatedBy("felix")
-                .build();
+        entity =  (TradingRecord) new TradingRecord().setCoinCode("CNY").setQuantity(1.0).setTradingType("1")
+                .setMoney(35000.0).setUnit("1").setBookedDate(new Date()).setRemark("测试数据")
+                .setCreatedBy("felix").setUpdatedBy("felix");
         entity = dao.save(entity);
     }
 

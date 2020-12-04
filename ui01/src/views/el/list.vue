@@ -2,7 +2,7 @@
   <div id="tradingRecordDiv">
     <el-form ref="tradingRecordForm" :model="tradingRecord" :inline="true">
       <el-row>
-        <el-form-item label="记账日期" prop="bookedDate">
+        <el-form-item label="记账日期" prop="bookedDate" required>
           <el-date-picker
             v-model="tradingRecord.bookedDate"
             align="left"
@@ -10,29 +10,31 @@
             format="yyyy 年 MM 月 dd 日"
             placeholder="选择日期"
             :picker-options="pickerOptions"
-            required
+            
           >
           </el-date-picker>
         </el-form-item>
 
-        <el-form-item label="币种">
+        <el-form-item label="币种" required>
           <el-select v-model="tradingRecord.coinCode" placeholder="请选择币种">
             <el-option label="BTC" value="BTC"></el-option>
             <el-option label="ETH" value="ETH"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="数量" prop="quantity">
+        <el-form-item label="数量" prop="quantity" required>
           <el-input
             v-model="tradingRecord.quantity"
             placeholder="请输入数量"
             clearable
+            
           ></el-input>
         </el-form-item>
-        <el-form-item label="单价" prop="money">
+        <el-form-item label="单价" prop="money" required>
           <el-input
             v-model="tradingRecord.money"
             placeholder="请输入单价"
             clearable
+            
           ></el-input>
         </el-form-item>
 
@@ -58,11 +60,7 @@
           </el-select>
         </el-form-item>
         <el-form-item label="单位">
-          <el-select
-            v-model="tradingRecord.unit"
-            placeholder="单位"
-            disabled
-          >
+          <el-select v-model="tradingRecord.unit" placeholder="单位" disabled>
             <el-option label="CNY" value="CNY"></el-option>
             <el-option label="BTC" value="BTC"></el-option>
             <el-option label="USD" value="USD"></el-option>
@@ -85,9 +83,9 @@
             class="btn-auto"
             @click="handleSave('tradingRecordForm')"
             type="success"
-            >{{ isEdit ? '保存' : '新增' }}</el-button
+            >{{ isEdit ? "保存" : "新增" }}</el-button
           >
-           <el-button
+          <el-button
             class="btn-auto"
             @click="handleCancel('tradingRecordForm')"
             type="info"
@@ -97,10 +95,20 @@
         </el-form-item>
       </el-row>
     </el-form>
-    <el-table :data="tableData" style="width: 100%" :border="true" :stripe="true" :highlight-current-row="true">
-      <el-table-column  label="NO." min-width="40" :resizable="true"
-      type="index">
-    </el-table-column>
+    <el-table
+      :data="tableData"
+      style="width: 100%"
+      :border="true"
+      :stripe="true"
+      :highlight-current-row="true"
+    >
+      <el-table-column
+        label="NO."
+        min-width="40"
+        :resizable="true"
+        type="index"
+      >
+      </el-table-column>
       <el-table-column
         prop="bookedDate"
         label="交易日期"
@@ -117,7 +125,7 @@
         :resizable="true"
       >
       </el-table-column>
-       <el-table-column
+      <el-table-column
         prop="tradingType"
         label="交易类型"
         min-width="50"
@@ -133,7 +141,7 @@
         :formatter="balanceFormater"
       >
       </el-table-column>
-     
+
       <el-table-column
         prop="money"
         label="单价"
@@ -275,41 +283,48 @@ export default {
     getList() {
       listTradingRecord({ sort: "updatedTime,desc" }).then((res) => {
         this.tableData = res._embedded.tradingRecord;
-        console.log("this.tableData", this.tableData);
+        //console.log("this.tableData", this.tableData);
       });
     },
     //添加一条交易记录
     handleSave(formName) {
       console.log(this.$refs[formName]);
-      if (this.tradingRecord.id == undefined) {
-        //新增记录
-        addTradingRecord(this.tradingRecord).then((res) => {
-          console.log(res);
-          this.getList();
-          this.tradingRecord = JSON.parse(JSON.stringify(newTradingRecord));
-          this.$message("创建成功！");
-        });
-      } else {
-        this.tradingRecord.updatedTime = null;
-        updateTradingRecord(this.tradingRecord).then((res) => {
-          console.log(res);
-          this.getList();
-          this.tradingRecord = JSON.parse(JSON.stringify(newTradingRecord));
-          this.$message("更新成功！");
-        });
-      }
+      this.$refs[formName].validate((valid) => {
+        console.log(valid);
+        if (!valid) {
+          console.log("error submit!!");
+          return false;
+        } else {
+          if (this.tradingRecord.id == undefined) {
+            //新增记录
+            addTradingRecord(this.tradingRecord).then((res) => {
+              console.log(res);
+              this.getList();
+              this.tradingRecord = JSON.parse(JSON.stringify(newTradingRecord));
+              this.$message("创建成功！");
+            });
+          } else {
+            this.tradingRecord.updatedTime = null;
+            updateTradingRecord(this.tradingRecord).then((res) => {
+              console.log(res);
+              this.getList();
+              this.tradingRecord = JSON.parse(JSON.stringify(newTradingRecord));
+              this.isEdit=false;
+              this.$message("更新成功！");
+            });
+          }
+        }
+      });
     },
     //编辑交易记录
     handleCancel(formName) {
       this.isEdit = false;
       this.tradingRecord = JSON.parse(JSON.stringify(newTradingRecord));
-      
     },
     //取消编辑交易记录
     handleEdit(index, row) {
       this.isEdit = true;
       this.tradingRecord = JSON.parse(JSON.stringify(row));
-      
     },
     //删除交易记录
     handleDelete(index, row) {
@@ -326,7 +341,7 @@ export default {
       });
     },
     //交易类型字典格式化
-    tradingTypeFormater: function (row, column, cellValue, index) {
+    tradingTypeFormater: function(row, column, cellValue, index) {
       let tradingType = row[column.property];
       if (tradingType == undefined) {
         return "";
@@ -334,7 +349,7 @@ export default {
       return tradingType == "1" ? "买入" : "卖出";
     },
     //价格类型字典格式化
-    priceTypeFormater: function (row, column, cellValue, index) {
+    priceTypeFormater: function(row, column, cellValue, index) {
       let priceType = row[column.property];
       if (priceType == undefined) {
         return "";
@@ -342,7 +357,7 @@ export default {
       return priceType == "1" ? "总价" : "单价";
     },
     //日期格式化
-    dateFormater: function (row, column, cellValue, index) {
+    dateFormater: function(row, column, cellValue, index) {
       let date = row[column.property];
       if (date == undefined) {
         return "";
@@ -351,7 +366,7 @@ export default {
       return moment(date).format("YYYY-MM-DD");
     },
     //日期时间格式化
-    dateTimeFormater: function (row, column, cellValue, index) {
+    dateTimeFormater: function(row, column, cellValue, index) {
       let date = row[column.property];
       if (date == undefined) {
         return "";
@@ -360,7 +375,7 @@ export default {
       return moment(date).format("YYYY-MM-DD HH:mm:ss");
     },
     //币数格式化
-    balanceFormater: function (row, column, cellValue, index) {
+    balanceFormater: function(row, column, cellValue, index) {
       let balance = row[column.property];
       if (balance == undefined) {
         return "";
@@ -370,7 +385,7 @@ export default {
       return number.format("0.0000");
     },
     //货币格式化
-    currencyFormater: function (row, column, cellValue, index) {
+    currencyFormater: function(row, column, cellValue, index) {
       let currency = row[column.property];
       if (currency == undefined) {
         return "";
