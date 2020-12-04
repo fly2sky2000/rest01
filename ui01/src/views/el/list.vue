@@ -98,7 +98,7 @@
       </el-row>
     </el-form>
     <el-table :data="tableData" style="width: 100%" :border="true" :stripe="true" :highlight-current-row="true">
-      <el-table-column  label="序号" min-width="40" :resizable="true"
+      <el-table-column  label="NO." min-width="40" :resizable="true"
       type="index">
     </el-table-column>
       <el-table-column
