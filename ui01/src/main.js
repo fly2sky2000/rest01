@@ -7,20 +7,6 @@ import store from './store'
 
 Vue.config.productionTip = false
 
-// respone 拦截器
-// request.interceptors.response.use(
-//   response => {
-//     const { data = {} } = response;
-//     const { success } = data;
-//     if (success) {
-//       return data;
-//     } else {
-//       return { success };
-//     }
-//   },
-//   error => {
-//     return { success: false };
-//   });
 import './utils/element.js'
 
 new Vue({

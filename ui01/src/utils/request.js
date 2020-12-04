@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { Notification, MessageBox, Message } from 'element-ui'
+import Vue from 'vue';
 import store from '@/store'
 // import { getToken } from '@/utils/auth'
 import errorCode from '@/utils/errorCode'
@@ -32,7 +32,7 @@ service.interceptors.response.use(res => {
     // 获取错误信息
     const msg = errorCode[code] || res.data.msg || errorCode['default']
     if (code === 401) {
-      MessageBox.confirm('登录状态已过期，您可以继续留在该页面，或者重新登录', '系统提示', {
+      Vue.prototype.$msgbox.confirm('登录状态已过期，您可以继续留在该页面，或者重新登录', '系统提示', {
           confirmButtonText: '重新登录',
           cancelButtonText: '取消',
           type: 'warning'
@@ -43,13 +43,14 @@ service.interceptors.response.use(res => {
         })
       })
     } else if (code === 500) {
-      Message({
-        message: msg,
-        type: 'error'
-      })
+      console.log(code)
+      Vue.prototype.$message({
+          message: msg,
+          type: 'error'
+        })
       return Promise.reject(new Error(msg))
     } else if (code !== 200) {
-      Notification.error({
+      Vue.prototype.$notify.error({
         title: msg
       })
       return Promise.reject('error')
@@ -69,7 +70,7 @@ service.interceptors.response.use(res => {
     else if (message.includes("Request failed with status code")) {
       message = "系统接口" + message.substr(message.length - 3) + "异常";
     }
-    Message({
+    Vue.prototype.$message({
       message: message,
       type: 'error',
       duration: 5 * 1000
