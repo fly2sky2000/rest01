@@ -5,6 +5,7 @@ import io.swagger.annotations.Api;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
@@ -17,4 +18,7 @@ public interface TradingRecordRepo extends JpaRepository<TradingRecord, String>,
     @RestResource(path = "createdBy", rel = "createdBy")
     List<TradingRecord> findByCreatedBy(@Param("createdBy") String createdBy);
 
+    @RestResource(path = "findAllOrdered")
+    @Query("select t from TradingRecord t order by t.bookedDate desc ")
+    List<TradingRecord> findAllOrdered();
 }

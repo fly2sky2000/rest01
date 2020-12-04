@@ -4,7 +4,7 @@ const url = "/tradingRecord";
 
 export function listTradingRecord(params){
     return request({
-        url:url,
+        url:url+"/search/findAllOrdered",
         method:"get",
         params: params
     })

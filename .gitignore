@@ -33,3 +33,8 @@ build/
 .vscode/
 log/timeFile/
 
+/docker/dev01docker/mongodb/
+/docker/dev01docker/mysql/data/
+/docker/dev01docker/phpmyadmin/
+/docker/dev01docker/redis/data/
+.DS_Store

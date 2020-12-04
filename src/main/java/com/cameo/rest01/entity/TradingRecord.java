@@ -21,7 +21,6 @@ import java.util.Date;
 @Table(name="TRADING_RECORD")
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@GenericGenerator(name = "jpa-uuid", strategy = "uuid")
 public class TradingRecord extends BaseEntity{
 
     /** 币种 */
@@ -50,6 +49,7 @@ public class TradingRecord extends BaseEntity{
 
     /** ID */
     @Id
+    @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
     @GeneratedValue(generator = "jpa-uuid")
     @Column(length = 32)
     @ApiModelProperty("ID")
