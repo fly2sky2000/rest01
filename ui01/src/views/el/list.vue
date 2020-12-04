@@ -292,7 +292,7 @@ export default {
       this.$refs[formName].validate((valid) => {
         console.log(valid);
         if (!valid) {
-          console.log("error submit!!");
+          this.$message("校验错误！");
           return false;
         } else {
           if (this.tradingRecord.id == undefined) {
@@ -301,6 +301,7 @@ export default {
               console.log(res);
               this.getList();
               this.tradingRecord = JSON.parse(JSON.stringify(newTradingRecord));
+              this.$refs[formName].clearValidate();
               this.$message("创建成功！");
             });
           } else {
@@ -310,6 +311,7 @@ export default {
               this.getList();
               this.tradingRecord = JSON.parse(JSON.stringify(newTradingRecord));
               this.isEdit=false;
+              this.$refs[formName].clearValidate();
               this.$message("更新成功！");
             });
           }
