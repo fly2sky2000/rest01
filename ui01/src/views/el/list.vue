@@ -55,8 +55,8 @@
             placeholder="请选择类型"
             disabled
           >
-            <el-option label="买入" value="1"></el-option>
-            <el-option label="卖出" value="2"></el-option>
+            <el-option label="买入" value="BUY"></el-option>
+            <el-option label="卖出" value="SELL"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="单位">
@@ -72,8 +72,8 @@
             placeholder="价格类型"
             disabled
           >
-            <el-option label="总价" value="1"></el-option>
-            <el-option label="单价" value="2"></el-option>
+            <el-option label="总价" value="TOTAL"></el-option>
+            <el-option label="单价" value="UNIT"></el-option>
           </el-select>
         </el-form-item>
       </el-row>
@@ -237,10 +237,10 @@ let newTradingRecord = {
   bookedDate: Date.now(), //交易日期
   coinCode: "BTC", //币种
   quantity: null, //交易数量
-  tradingType: "1", //交易类型;1买入,2卖出
+  tradingType: "BUY", //交易类型;1买入,2卖出
   money: null, //交易金额
   unit: "CNY", //交易单位
-  priceType: "2", //价格类型;1总价,2单价
+  priceType: "UNIT", //价格类型;1总价,2单价
   remark: null, //备注
   createdBy: "felix", //创建人
   updatedBy: "felix", //更新人
@@ -346,7 +346,7 @@ export default {
       if (tradingType == undefined) {
         return "";
       }
-      return tradingType == "1" ? "买入" : "卖出";
+      return tradingType == "BUY" ? "买入" : "卖出";
     },
     //价格类型字典格式化
     priceTypeFormater: function(row, column, cellValue, index) {
@@ -354,7 +354,7 @@ export default {
       if (priceType == undefined) {
         return "";
       }
-      return priceType == "1" ? "总价" : "单价";
+      return priceType == "TOTAL" ? "总价" : "单价";
     },
     //日期格式化
     dateFormater: function(row, column, cellValue, index) {
