@@ -10,6 +10,7 @@ console.log(process.env.VUE_APP_BASE_API);
 const service = axios.create({
   // axios中请求配置有baseURL选项，表示请求URL公共部分
   baseURL: process.env.NODE_ENV === "production" ? process.env.VUE_APP_SRV_ADDR+process.env.VUE_APP_BASE_API : process.env.VUE_APP_BASE_API,
+  // baseURL: "http://localhost:8188/rest01/api",
   // 超时
   timeout: 10000
 })
