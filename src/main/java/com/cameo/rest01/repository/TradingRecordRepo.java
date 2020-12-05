@@ -9,11 +9,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
 @RepositoryRestResource(collectionResourceRel = "tradingRecord", path = "tradingRecord")
 @Api(tags="交易记录服务")
+@CrossOrigin
 public interface TradingRecordRepo extends JpaRepository<TradingRecord, String>, JpaSpecificationExecutor {
     @RestResource(path = "createdBy", rel = "createdBy")
     List<TradingRecord> findByCreatedBy(@Param("createdBy") String createdBy);
