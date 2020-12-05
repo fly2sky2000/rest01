@@ -17,6 +17,7 @@ public class RestConfiguration implements RepositoryRestConfigurer {
     {
         return RepositoryRestConfigurer.withConfig(config -> {
             config.exposeIdsFor(TradingRecord.class);
+            //config.getCorsRegistry()
         });
     }
 //    @Override
