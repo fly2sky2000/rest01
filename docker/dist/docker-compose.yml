@@ -1,0 +1,65 @@
+version: '3'
+
+services:
+
+  #mysql服务
+  mysql8:
+    image: mysql
+    hostname: mysql8
+    container_name: mysql8
+    restart: always
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    command:
+      --default-authentication-plugin=mysql_native_password
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --explicit_defaults_for_timestamp=true
+      --lower_case_table_names=1
+    environment:
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+      MYSQL_ROOT_PASSWORD: 123456
+  # mysql管理工具
+  phpmyadminProd:
+    image: phpmyadmin
+    container_name: phpmyadminProd
+    hostname: phpmyadminProd
+    environment:
+      - PMA_ARBITRARY=1
+    restart: always
+    ports:
+      - 10201:80
+    depends_on:
+      - mysql8
+    links:
+      - mysql8
+
+  # 后端项目
+  rest01:
+    image: rest01
+    container_name: rest01
+    hostname: rest01
+    depends_on:
+      - mysql8
+    links:
+      - mysql8
+    restart: unless-stopped
+    ports:
+      - 10202:10202
+    expose:
+      - 10202
+  # 前端项目
+  ui01:
+    image: ui01
+    container_name: ui01
+    hostname: ui01
+    depends_on:
+      - rest01
+    links:
+      - rest01
+    restart: unless-stopped
+    ports:
+      - 10203:80

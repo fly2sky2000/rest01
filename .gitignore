@@ -38,3 +38,5 @@ log/timeFile/
 /docker/dev01docker/phpmyadmin/
 /docker/dev01docker/redis/data/
 .DS_Store
+/docker/dist/jar/log/
+/docker/dist/ui/dist/

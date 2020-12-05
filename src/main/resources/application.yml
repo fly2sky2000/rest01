@@ -1,23 +1,9 @@
-server:
-  # 服务器的HTTP端口，默认为8080
-  port: 8188
-  servlet:
-    # 应用的访问路径
-    context-path: /rest01
-
-
 # DataSource Config
 spring:
   # 环境 dev:开发环境|test:测试环境|prod:生产环境
   profiles:
     active: dev #激活的配置文件
-  datasource:
-    #driver-class-name: com.p6spy.engine.spy.P6SpyDriver
-    #url: jdbc:p6spy:mysql://localhost:3306/testdb01?useUnicode=true&serverTimezone=GMT&useSSL=false&characterEncoding=utf8
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/testdb01?useUnicode=true&serverTimezone=Asia/Shanghai&useSSL=false&characterEncoding=utf8
-    username: root
-    password: 123456
+
   jpa:
     database: mysql
     #show-sql: true

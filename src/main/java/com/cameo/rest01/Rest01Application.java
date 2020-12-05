@@ -10,7 +10,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 public class Rest01Application {
 
     public static void main(String[] args) {
+        System.out.println(args);
         SpringApplication.run(Rest01Application.class, args);
+
     }
 
 }
