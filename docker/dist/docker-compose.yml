@@ -9,7 +9,7 @@ services:
     container_name: mysql8
     restart: always
     ports:
-      - 3306:3306
+      - 10200:3306
     expose:
       - 3306
     command:

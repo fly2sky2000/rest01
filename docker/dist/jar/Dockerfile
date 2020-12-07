@@ -12,7 +12,8 @@ VOLUME /tmp
 ADD app.jar app.jar
 # 运行jar包
 RUN bash -c 'touch /app.jar'
-ENV JAVA_OPTS=""
-ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
-# EXPOSE 10202
+# ENV JAVA_OPTS=""
+# ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
+EXPOSE 10202
 # ENTRYPOINT ["java", "-jar", "app.jar", "--spring.profiles.active=prod", "--server.port=10202", "> /log/app.log"]
+ENTRYPOINT ["java", "-jar", "app.jar", "--spring.profiles.active=prod", "--server.port=10202"]
