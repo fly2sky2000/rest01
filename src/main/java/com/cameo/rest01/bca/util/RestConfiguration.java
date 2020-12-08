@@ -32,7 +32,12 @@ public class RestConfiguration implements RepositoryRestConfigurer {
      */
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
-        cors.addMapping("/**");
+        cors.addMapping("/**")
+                .allowedOrigins("*")
+                .allowedMethods("PUT","GET","POST","OPTIONS","PATCH","DELETE")
+                .maxAge(3600);
+                //.allowCredentials(true);
+
     }
     //    @Override
 //    public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
